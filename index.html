@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oscar Ferreira Estilistas | Peluquería en Avellaneda</title>
+<meta name="description" content="Oscar Ferreira Estilistas, peluquería en Avellaneda. Corte, color, alisados y peinados. Armá tu turno online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--t:#0b3c49;--t2:#0f4f60;--p:#ffb38a;--cr:#fff9f4;--sand:#f3e6da;--mut:#5d7279;--line:#e6d6c8;--r:22px;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--cr);color:var(--t);font:400 1.0625rem/1.65 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--p);outline-offset:3px}
+.wrap{width:min(1140px,100% - 2.5rem);margin-inline:auto}
+.un{font-family:Unbounded,"Arial Black",sans-serif;font-weight:600;line-height:1.05;letter-spacing:-.03em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;background:var(--t);color:var(--cr);font:700 1rem "Hanken Grotesk",sans-serif;padding:1rem 1.8rem;border-radius:14px;border:0;text-decoration:none;cursor:pointer;min-height:52px;transition:transform .25s,background .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px -12px var(--t)}
+.btn.pe{background:var(--p);color:var(--t)}.btn.ln{background:transparent;color:var(--t);border:2px solid var(--t)}.btn.ln:hover{background:var(--t);color:var(--cr)}
+/* intro tiras */
+#intro{position:fixed;inset:0;z-index:100;display:flex;pointer-events:none}
+#intro b{flex:1;background:var(--t);transition:transform .9s cubic-bezier(.77,0,.18,1);transition-delay:calc(var(--i)*70ms)}
+#intro .in{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:1rem;color:var(--cr);text-align:center;padding:1.5rem;transition:opacity .35s}
+.iname{font-size:clamp(1.8rem,6vw,3.6rem);clip-path:inset(0 0 100% 0);transform:translateY(24px);animation:up 1s .2s forwards cubic-bezier(.2,.8,.2,1)}
+@keyframes up{to{clip-path:inset(0);transform:none}}
+.isub{letter-spacing:.4em;text-transform:uppercase;font-size:.8rem;color:var(--p);opacity:0;animation:fi .8s 1s forwards}
+@keyframes fi{to{opacity:1}}
+.ln2{width:0;height:3px;background:var(--p);animation:w 1.2s .9s forwards ease-out}
+@keyframes w{to{width:min(240px,60vw)}}
+#intro.go .in{opacity:0}#intro.go b{transform:translateY(-101%)}#intro.off{display:none}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;padding:.9rem 0;padding-top:max(.9rem,env(safe-area-inset-top));transition:background .3s,box-shadow .3s}
+nav.sc{background:rgba(255,249,244,.94);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{text-decoration:none;font-size:1.05rem}.logo small{display:block;font:600 .62rem "Hanken Grotesk";letter-spacing:.32em;color:var(--mut);text-transform:uppercase;margin-top:.2rem}
+nav ul{display:flex;gap:1.7rem;list-style:none;padding:0;font-weight:600;font-size:.95rem}
+nav ul a{text-decoration:none;color:var(--mut);transition:color .2s}nav ul a:hover{color:var(--t)}
+@media(max-width:860px){nav ul{display:none}.btn.sm{padding:.7rem 1.1rem;min-height:44px}}
+/* hero */
+.hero{min-height:100svh;padding:8rem 0 3.5rem;display:grid;align-items:center;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+.tg{display:inline-block;background:var(--sand);border-radius:999px;padding:.4rem 1rem;font-weight:700;font-size:.85rem;margin-bottom:1.4rem}
+.hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem)}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 em{display:block;font-style:normal;transform:translateY(112%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.hero h1 span:nth-child(2) em{transition-delay:.12s;color:#e06a33}
+.hero h1 span:nth-child(3) em{transition-delay:.24s}
+.rev .hero h1 em{transform:none}
+.lead,.cta{opacity:0;transform:translateY(14px);transition:all .8s .6s}
+.lead{max-width:30rem;color:var(--mut);margin:1.5rem 0 2rem;font-size:1.15rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;transition-delay:.8s}
+.rev .lead,.rev .cta{opacity:1;transform:none}
+.stack{position:relative;height:min(520px,64vh);opacity:0;transition:opacity 1s .5s}.rev .stack{opacity:1}
+.ph{position:absolute;border-radius:var(--r);display:grid;place-items:end start;padding:1rem;color:#fff;font-weight:700;font-size:.82rem;box-shadow:0 30px 50px -30px rgba(11,60,73,.6);transition:transform .5s}
+.ph:hover{transform:rotate(0) scale(1.03)!important;z-index:5}
+.p1{width:58%;height:62%;left:0;top:0;background:linear-gradient(150deg,#ffcfae,#e06a33);transform:rotate(-4deg)}
+.p2{width:52%;height:52%;right:0;top:12%;place-items:start end;background:linear-gradient(150deg,#1d7a8f,#0b3c49);transform:rotate(3deg)}
+.p3{width:50%;height:42%;left:14%;bottom:0;background:linear-gradient(150deg,#f3e6da,#d8b79b);color:var(--t);transform:rotate(-1.5deg)}
+.sticker{position:absolute;right:4%;bottom:8%;width:112px;height:112px;border-radius:50%;background:var(--p);color:var(--t);display:grid;place-content:center;text-align:center;z-index:6;animation:wob 6s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(8deg) scale(1.05)}}
+.sticker b{font:700 2rem/1 Unbounded,sans-serif}.sticker small{font-weight:700;font-size:.72rem}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.stack{height:380px}}
+/* franja */
+.band{background:var(--t);color:var(--cr);padding:1.6rem 0}
+.band .wrap{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
+.band div{display:flex;align-items:baseline;gap:.7rem}.band b{font:600 1.8rem Unbounded,sans-serif;color:var(--p)}.band span{font-size:.95rem;color:#bfd6dc}
+/* secciones */
+section{padding:clamp(4rem,9vw,7rem) 0}
+.sh{margin-bottom:2.4rem;max-width:42rem}.sh h2{font-size:clamp(1.9rem,4.6vw,3.2rem)}.sh h2 b{color:#e06a33}.sh p{color:var(--mut);margin-top:.8rem}
+.fade{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}.fade.in{opacity:1;transform:none}
+/* servicios seleccionables */
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem}
+.sv{background:#fff;border:2px solid var(--line);border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;gap:.5rem;transition:transform .3s,border-color .3s,box-shadow .3s}
+.sv:hover{transform:translateY(-6px);box-shadow:0 24px 36px -28px var(--t)}
+.sv.on{border-color:var(--t);background:#f4fafb}
+.pill{align-self:flex-start;background:var(--sand);border-radius:999px;padding:.2rem .8rem;font-size:.78rem;font-weight:700;letter-spacing:.04em}
+.sv h3{font:600 1.25rem/1.15 Unbounded,sans-serif;letter-spacing:-.02em;margin-top:.4rem}.sv p{color:var(--mut);font-size:.95rem;flex:1}
+.sv .mt{display:flex;justify-content:space-between;align-items:center;margin-top:.6rem;font-weight:700}.sv .mt small{color:var(--mut);font-weight:600}
+.sv .pr{font:600 1.35rem Unbounded,sans-serif;letter-spacing:-.03em}
+.add{margin-top:.6rem;background:transparent;border:2px solid var(--t);color:var(--t);border-radius:12px;padding:.7rem;font:700 .95rem "Hanken Grotesk",sans-serif;cursor:pointer;min-height:46px;transition:all .2s}
+.add:hover{background:var(--t);color:var(--cr)}.sv.on .add{background:var(--t);color:var(--cr)}
+/* equipo */
+.tm{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.pc{text-align:center}
+.pc i{display:block;aspect-ratio:4/5;border-radius:var(--r);margin-bottom:1rem;background:linear-gradient(160deg,var(--sand),#d8b79b);position:relative;overflow:hidden;transition:transform .4s}
+.pc:hover i{transform:translateY(-6px)}
+.pc i::after{content:"Tu foto";position:absolute;bottom:.8rem;left:0;right:0;font-size:.8rem;font-weight:700;color:var(--t);opacity:.6}
+.pc h3{font:600 1.1rem Unbounded,sans-serif}.pc p{color:var(--mut);font-size:.95rem}
+/* reseñas */
+.rb{background:var(--t);color:var(--cr)}
+.rb .sh p{color:#bfd6dc}.rb .sh h2 b{color:var(--p)}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
+.rc{background:var(--t2);border-radius:var(--r);padding:1.8rem}.rc .s{color:var(--p);letter-spacing:.18em;margin-bottom:.6rem}
+.rc p{font-size:1.08rem}.rc cite{display:block;margin-top:1rem;font-style:normal;font-size:.88rem;color:#a9c4cc}
+/* turno */
+.tb{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;background:#fff;border:2px solid var(--line);border-radius:28px;padding:clamp(1.4rem,3.5vw,2.6rem);align-items:start}
+.tb h3{font:600 .8rem "Hanken Grotesk",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#e06a33;margin-bottom:.9rem}
+.sel{list-style:none;padding:0;margin-bottom:1.2rem;min-height:3.5rem}
+.sel li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:1px dashed var(--line);font-weight:600}
+.sel li button{background:none;border:0;color:var(--mut);cursor:pointer;font:inherit;margin-left:.6rem}
+.sel .em{color:var(--mut);font-weight:400;border:0}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;margin-bottom:.3rem}.tot b{font:600 1.7rem Unbounded,sans-serif;letter-spacing:-.03em}
+.nt{color:var(--mut);font-size:.84rem}
+.days{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:1.1rem}
+.dy{flex:0 0 auto;min-width:66px;text-align:center;background:transparent;border:2px solid var(--line);border-radius:14px;padding:.55rem .4rem;cursor:pointer;font:600 .82rem "Hanken Grotesk",sans-serif;color:var(--t);transition:all .2s;min-height:64px}
+.dy b{display:block;font:600 1.3rem Unbounded,sans-serif}.dy[aria-pressed=true]{background:var(--t);color:var(--cr);border-color:var(--t)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:.5rem;margin-bottom:1.4rem}
+.sl{background:transparent;border:2px solid var(--line);border-radius:12px;padding:.6rem;font:700 .95rem "Hanken Grotesk",sans-serif;cursor:pointer;min-height:46px;color:var(--t);transition:all .2s}
+.sl:hover{border-color:var(--p)}.sl[aria-pressed=true]{background:var(--p);border-color:var(--p)}.sl:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.btn[aria-disabled=true]{opacity:.35;pointer-events:none}.tb .btn{width:100%}
+@media(max-width:860px){.tb{grid-template-columns:1fr}}
+/* ubicación */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hrs{list-style:none;padding:0;max-width:26rem;margin:1.2rem 0 1.6rem}.hrs li{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--line)}.hrs .t{color:#e06a33;font-weight:700}
+.mp{border-radius:var(--r);min-height:320px;background:linear-gradient(rgba(243,230,218,.8),rgba(243,230,218,.8)),repeating-linear-gradient(60deg,transparent 0 34px,#fff 34px 36px),repeating-linear-gradient(-30deg,transparent 0 34px,#fff 34px 36px);display:grid;place-items:center;text-align:center;padding:1.5rem}
+.mp .un{font-size:1.5rem}.mp p{color:var(--mut)}
+@media(max-width:800px){.loc{grid-template-columns:1fr}}
+footer{background:var(--t);color:#bfd6dc;padding:2.2rem 0 3rem;font-size:.9rem}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.wa{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 26px -8px rgba(0,0,0,.5);transition:transform .2s}.wa:hover{transform:scale(1.08)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero h1 em{transform:none}.lead,.cta,.stack,.fade,.isub{opacity:1;transform:none}.iname{clip-path:none;transform:none}#intro{display:none}}
+</style>
+</head>
+<body class="lock">
+
+<div id="intro" aria-hidden="true"><b style="--i:0"></b><b style="--i:1"></b><b style="--i:2"></b><b style="--i:3"></b><b style="--i:4"></b><b style="--i:5"></b><b style="--i:6"></b>
+  <div class="in"><div class="iname un" id="iname"></div><div class="ln2"></div><div class="isub">Estilistas · Avellaneda</div></div></div>
+
+<nav id="nav"><div class="wrap">
+  <a class="logo un" href="#top">Oscar Ferreira<small>Estilistas</small></a>
+  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#resenas">Reseñas</a></li><li><a href="#ubicacion">Dónde estamos</a></li></ul>
+  <a class="btn pe sm" href="#turno">Armar turno</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="tg" id="zona"></span>
+    <h1 class="un"><span><em>Tu estilo,</em></span><span><em>tu color,</em></span><span><em>tu turno.</em></span></h1>
+    <p class="lead">Corte, color, alisados y peinados con un equipo de estilistas de confianza, a buen precio y en el centro de Avellaneda.</p>
+    <div class="cta"><a class="btn" href="#turno">Armar mi turno</a><a class="btn ln" href="#servicios">Ver servicios</a></div>
+  </div>
+  <div class="stack" aria-hidden="true"><div class="ph p1">Tu foto: color</div><div class="ph p2">Tu foto: corte</div><div class="ph p3">Tu foto: peinado</div>
+    <div class="sticker"><b id="stn"></b><small>en Google</small></div></div>
+</div></header>
+
+<div class="band"><div class="wrap"><div><b id="bn"></b><span>nota en Google</span></div><div><b id="br"></b><span>reseñas de clientes</span></div><div><b>6</b><span>días a la semana</span></div></div></div>
+
+<section id="servicios"><div class="wrap">
+  <div class="sh fade"><h2 class="un">Armá tu turno <b>a medida</b></h2><p>Sumá uno o más servicios a tu turno y mirá el total al instante.</p></div>
+  <div class="sg fade" id="sg"></div>
+  <p class="nt" style="margin-top:1.2rem">Servicios y precios de ejemplo para la propuesta.</p>
+</div></section>
+
+<section id="equipo" style="padding-top:0"><div class="wrap">
+  <div class="sh fade"><h2 class="un">Nuestras <b>estilistas</b></h2><p>Profesionales con años de experiencia en corte, color y alisados.</p></div>
+  <div class="tm fade"><div class="pc"><i></i><h3>Estilista 1</h3><p>Color y mechas</p></div><div class="pc"><i></i><h3>Estilista 2</h3><p>Cortes y peinados</p></div><div class="pc"><i></i><h3>Estilista 3</h3><p>Alisados y tratamientos</p></div></div>
+</div></section>
+
+<section id="resenas" class="rb"><div class="wrap">
+  <div class="sh fade"><h2 class="un">Lo que dicen <b>nuestras clientas</b></h2><p id="rtxt"></p></div>
+  <div class="rg fade" id="rg"></div>
+</div></section>
+
+<section id="turno"><div class="wrap">
+  <div class="sh fade"><h2 class="un">Confirmá tu <b>turno</b></h2><p>Elegí el día y el horario. Te lo confirmamos por WhatsApp.</p></div>
+  <div class="tb fade">
+    <div><h3>Tu selección</h3><ul class="sel" id="sel"></ul><div class="tot"><span>Total estimado</span><b id="tot">$0</b></div><p class="nt" id="dur"></p><p class="nt">El precio final puede variar según largo y tipo de cabello.</p></div>
+    <div><h3>Día</h3><div class="days" id="days"></div><h3>Horario</h3><div class="slots" id="slots"></div>
+      <a class="btn pe" id="confirm" aria-disabled="true" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a></div>
+  </div>
+</div></section>
+
+<section id="ubicacion" style="padding-top:0"><div class="wrap loc">
+  <div class="fade"><h2 class="un" style="font-size:clamp(1.9rem,4.6vw,3.2rem)">Vení a <span style="color:#e06a33">visitarnos</span></h2><p id="dir" style="color:var(--mut);margin-top:.8rem;font-size:1.15rem"></p><ul class="hrs" id="hrs"></ul>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap"><a class="btn" id="mapA" target="_blank" rel="noopener" href="#">Cómo llegar</a><a class="btn ln" id="telA" href="#">Llamar</a></div></div>
+  <div class="mp fade"><div><div class="un">Acá va el mapa</div><p id="dir2"></p></div></div>
+</div></section>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Oscar Ferreira Estilistas</span><span>Propuesta de diseño por <a href="https://www.instagram.com/veltri.studio/" target="_blank" rel="noopener">Veltri Studio</a></span></div></footer>
+<a class="wa" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg></a>
+
+<script>
+/* ======== DATOS DEL NEGOCIO: lo único que se edita para personalizar ======== */
+const C={
+  nombre:"Oscar Ferreira Estilistas",
+  zona:"Avellaneda, Buenos Aires",
+  direccion:"Italia 8 (COB), Avellaneda",
+  mapa:"https://www.google.com/maps/search/?api=1&query=Oscar%20Ferreira%20Estilistas%20Italia%208%20Avellaneda&query_place_id=ChIJvfVNbU8zo5UReXw--DlfNP4",
+  tel:"+541142226143", wa:"5491142226143",     /* OJO: es un teléfono fijo, confirmar si tiene WhatsApp */
+  nota:4.6, reseñas:474,
+  dias:[1,2,3,4,5,6], horas:[10,19], paso:60,
+  servicios:[["Corte mujer","Corte a tu medida con lavado y brushing",16000,45,"Corte"],["Corte hombre","Corte clásico o moderno",10000,30,"Corte"],["Brushing","Lavado y peinado",12000,40,"Peinado"],["Color raíz","Retoque de raíz con productos profesionales",30000,90,"Color"],["Mechas / balayage","Técnica a elección, con tonalizado",60000,180,"Color"],["Alisado","Alisado prolijo y duradero",65000,150,"Alisado"],["Hidratación","Nutrición y brillo",20000,45,"Tratamiento"],["Peinado de fiesta","Recogidos y ondas",28000,60,"Peinado"]],
+  opiniones:[["Muy buen trabajo con el color y los precios son accesibles.","Reseña de ejemplo"],["Me hicieron el alisado y quedó perfecto. Muy buena atención.","Reseña de ejemplo"],["Siempre salgo conforme. Súper recomendable en Avellaneda.","Reseña de ejemplo"]]
+};
+/* ============================================================================ */
+const $=id=>document.getElementById(id),pesos=n=>"$"+n.toLocaleString("es-AR"),DN=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],MN=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const wl=t=>"https://wa.me/"+C.wa+"?text="+encodeURIComponent(t),nf=String(C.nota).replace(".",",");
+$("iname").textContent=C.nombre;$("yr").textContent=new Date().getFullYear();$("zona").textContent=C.zona;
+$("dir").textContent=C.direccion;$("dir2").textContent=C.direccion;$("mapA").href=C.mapa;$("telA").href="tel:"+C.tel;$("waFab").href=wl("Hola, quiero consultar por un turno.");
+$("stn").textContent=nf;$("bn").textContent=nf;$("br").textContent=C.reseñas;$("rtxt").textContent="Nota "+nf+" en Google, según "+C.reseñas+" reseñas.";
+$("rg").innerHTML=C.opiniones.map(o=>`<div class="rc"><div class="s">★★★★★</div><p>“${o[0]}”</p><cite>${o[1]}</cite></div>`).join("");
+const hh=h=>String(h).padStart(2,"0")+":00";
+$("hrs").innerHTML=[1,2,3,4,5,6,0].map(d=>`<li><span>${["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"][d]}</span><span class="${C.dias.includes(d)?"t":""}">${C.dias.includes(d)?hh(C.horas[0])+" a "+hh(C.horas[1]):"Cerrado"}</span></li>`).join("");
+/* servicios seleccionables */
+const sel=new Set(),B={d:null,h:null},days=[];
+$("sg").innerHTML=C.servicios.map((s,i)=>`<div class="sv" data-i="${i}"><span class="pill">${s[4]}</span><h3>${s[0]}</h3><p>${s[1]}</p><div class="mt"><span class="pr">${pesos(s[2])}</span><small>${s[3]>=120?(s[3]/60)+" hs":s[3]+" min"}</small></div><button class="add" type="button">Agregar a mi turno</button></div>`).join("");
+$("sg").onclick=e=>{const c=e.target.closest(".sv");if(!c||!e.target.closest(".add"))return;tog(+c.dataset.i)};
+function tog(i){sel.has(i)?sel.delete(i):sel.add(i);upd()}
+for(let i=0,d=new Date();days.length<8&&i<24;i++,d=new Date(Date.now()+i*864e5))if(C.dias.includes(d.getDay())&&!(i===0&&new Date().getHours()>=C.horas[1]-1))days.push(d);
+$("days").innerHTML=days.map((d,i)=>`<button class="dy" type="button" aria-pressed="false" data-i="${i}">${DN[d.getDay()]}<b>${d.getDate()}</b>${MN[d.getMonth()]}</button>`).join("");
+$("days").onclick=e=>{const b=e.target.closest(".dy");if(!b)return;B.d=+b.dataset.i;B.h=null;[...$("days").children].forEach(x=>x.setAttribute("aria-pressed",x===b));slots();upd()};
+function slots(){const d=days[B.d],now=new Date(),seed=d.getDate()*5+d.getMonth();let h="";
+  for(let m=C.horas[0]*60;m+C.paso<=C.horas[1]*60;m+=C.paso){const t=new Date(d);t.setHours(0,m,0,0);const off=((m/C.paso|0)*3+seed)%4===0||(d.toDateString()===now.toDateString()&&t<now),x=String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");h+=`<button class="sl" type="button" aria-pressed="false"${off?" disabled":""}>${x}</button>`}
+  $("slots").innerHTML=h}
+$("slots").onclick=e=>{const b=e.target.closest(".sl");if(!b)return;B.h=b.textContent;[...$("slots").children].forEach(x=>x.setAttribute("aria-pressed",x===b));upd()};
+function upd(){const list=[...sel].map(i=>C.servicios[i]),tot=list.reduce((a,s)=>a+s[2],0),min=list.reduce((a,s)=>a+s[3],0);
+  document.querySelectorAll(".sv").forEach(c=>{const on=sel.has(+c.dataset.i);c.classList.toggle("on",on);c.querySelector(".add").textContent=on?"✓ Agregado (quitar)":"Agregar a mi turno"});
+  $("sel").innerHTML=list.length?[...sel].map(i=>`<li><span>${C.servicios[i][0]}</span><span>${pesos(C.servicios[i][2])}<button type="button" data-r="${i}" aria-label="Quitar">✕</button></span></li>`).join(""):'<li class="em">Elegí uno o más servicios arriba.</li>';
+  $("tot").textContent=pesos(tot);$("dur").textContent=min?"Duración aproximada: "+(min>=60?Math.floor(min/60)+" h "+(min%60?min%60+" min":""):min+" min"):"";
+  const ok=list.length&&B.d!==null&&B.h,d=days[B.d];$("confirm").setAttribute("aria-disabled",!ok);
+  if(ok)$("confirm").href=wl(`Hola, soy [mi nombre]. Quiero reservar: ${list.map(s=>s[0]).join(" + ")}, el ${DN[d.getDay()]} ${d.getDate()} ${MN[d.getMonth()]} a las ${B.h}. Total estimado ${pesos(tot)}.`)}
+$("sel").onclick=e=>{const b=e.target.closest("[data-r]");if(b)tog(+b.dataset.r)};
+$("confirm").addEventListener("click",e=>{if($("confirm").getAttribute("aria-disabled")==="true")e.preventDefault()});
+$("days").children[0].click();
+/* animaciones */
+const intro=$("intro"),start=()=>{document.body.classList.add("rev");document.body.classList.remove("lock")};
+setTimeout(()=>{intro.classList.add("go");setTimeout(()=>document.body.classList.add("rev"),350)},2600);setTimeout(()=>{intro.classList.add("off");start()},3900);
+if(matchMedia("(prefers-reduced-motion:reduce)").matches){intro.classList.add("off");start()}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll(".fade").forEach(e=>io.observe(e));
+addEventListener("scroll",()=>$("nav").classList.toggle("sc",scrollY>40),{passive:true});
+</script>
+</body>
+</html>
